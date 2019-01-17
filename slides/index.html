@@ -1,0 +1,65 @@
+<!doctype html>
+<!-- Copyright (c) 2018 Environmental Systems Research Institute, Inc.
+     Apache-2.0 -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Web Editing with the ArcGIS API for JavaScript</title>
+
+  <link rel="stylesheet" href="../node_modules/esri-reveal.js-templates/css/reveal.css">
+  <link rel="stylesheet" href="../node_modules/esri-reveal.js-templates/css/theme/dev-summit-2019.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="../node_modules/esri-reveal.js-templates/lib/css/zenburn.css">
+
+  <style>
+    .reveal h1 {
+      font-size: 1.5em;
+    }
+  </style>
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? '../node_modules/esri-reveal.js-templates/css/print/pdf.css' : '../node_modules/esri-reveal.js-templates/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <!-- Slides are derived from external markdown -->
+      <section data-markdown="index.md" data-separator="^\r?\n---\r?\n" data-separator-vertical="^\r?\n------\r?\n" data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png">
+      </section>
+    </div>
+  </div>
+
+  <script src="../node_modules/esri-reveal.js-templates/lib/js/head.min.js"></script>
+  <script src="../node_modules/esri-reveal.js-templates/js/reveal.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      // This height and width are here for the left-aligned title slide.
+      // If you do not want that, you can remove these two settings and
+      // the presentation will be closer to OOTB-Reveal.js:
+      width: '100%',
+      height: '100%',
+
+      history: true,
+      dependencies: [
+        { src: '../node_modules/esri-reveal.js-templates/plugin/markdown/marked.js' },
+        { src: '../node_modules/esri-reveal.js-templates/plugin/markdown/markdown.js' },
+        { src: '../node_modules/esri-reveal.js-templates/plugin/notes/notes.js', async: true },
+        { src: '../node_modules/esri-reveal.js-templates/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+      ]
+    });
+  </script>
+</body>
+</html>

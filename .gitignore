@@ -1,0 +1,5 @@
+.DS_Store
+.idea
+node_modules
+demos/basic-editing/**/*.js
+demos/form-based-editing/**/*.js
