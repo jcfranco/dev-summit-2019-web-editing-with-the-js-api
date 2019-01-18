@@ -1,0 +1,16 @@
+{
+  "name": "dev-summit-2019-web-editing-with-the-js-api",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcfranco/dev-summit-2019-web-editing-with-the-js-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jcfranco/dev-summit-2019-web-editing-with-the-js-api/issues"
+  },
+  "homepage": "https://github.com/jcfranco/dev-summit-2019-web-editing-with-the-js-api#readme",
+  "dependencies": {
+    "esri-reveal.js-templates": "git+https://github.com/esri/reveal.js.git"
+  }
+}
