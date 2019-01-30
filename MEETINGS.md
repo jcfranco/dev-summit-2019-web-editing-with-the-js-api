@@ -1,3 +1,7 @@
+# 01/30/19
+
+* No meeting, only online chatter.
+
 # 01/16/19
 
 ## [Web Editing with the ArcGIS API for JavaScript](https://devsummit2019.schedule.esri.com/schedule/1935651005) (Thursday and will repeat on Friday)
