@@ -2,6 +2,17 @@
 
 * No meeting, only online chatter.
 
+> Q: Sketch using custom tools/shapes?
+
+https://devtopia.esri.com/WebGIS/arcgis-js-api/issues/18192 is assigned to 4.11, but no activity. Needs feedback/discussion. Low prio, possibly backlog.
+
+Sketch updates:
+
+No update on dateline issue https://devtopia.esri.com/WebGIS/arcgis-js-api/issues/18463
+New issue `Sketch: add property to control display order of tool buttons`
+
+Editor close, and needs testing before it's demo-worthy.
+
 # 01/16/19
 
 ## [Web Editing with the ArcGIS API for JavaScript](https://devsummit2019.schedule.esri.com/schedule/1935651005) (Thursday and will repeat on Friday)
