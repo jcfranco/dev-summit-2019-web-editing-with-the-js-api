@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Basic Editing</title>
+    <link rel="stylesheet" href="https://jsdev.arcgis.com/4.11/esri/css/main.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script>
+      var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+      window.dojoConfig = {
+        packages: [
+          {
+            name: "app",
+            location: locationPath + "/app"
+          }
+        ]
+      };
+    </script>
+    <script src="https://jsdev.arcgis.com/4.11"></script>
+    <script>
+      require(["app"]);
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
