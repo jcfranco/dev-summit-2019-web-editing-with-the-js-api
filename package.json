@@ -2,6 +2,9 @@
   "name": "dev-summit-2019-web-editing-with-the-js-api",
   "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "prettify": "prettier --write \"{demos}/**/*\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jcfranco/dev-summit-2019-web-editing-with-the-js-api.git"
@@ -12,5 +15,11 @@
   "homepage": "https://github.com/jcfranco/dev-summit-2019-web-editing-with-the-js-api#readme",
   "dependencies": {
     "esri-reveal.js-templates": "git+https://github.com/esri/reveal.js.git"
+  },
+  "devDependencies": {
+    "@types/arcgis-js-api": "~4.10.0",
+    "dojo-typings": "~1.11.9",
+    "prettier": "~1.16.4",
+    "typescript": "~3.3.3333"
   }
 }
