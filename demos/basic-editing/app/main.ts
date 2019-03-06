@@ -5,7 +5,7 @@ import Editor = require("esri/widgets/Editor");
 // Create a map from the referenced web map item id
 const webmap = new WebMap({
   portalItem: {
-    id: "e10fb3fab173489f83382624a81538aa"
+    id: "154ba34201774bb29f7c3b68adf52b6a"
   }
 });
 
