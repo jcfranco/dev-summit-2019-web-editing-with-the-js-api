@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>SketchViewModel with apply edits (create polygon only)</title>
+  <style>
+
+    html,
+    body,
+    #viewDiv {
+      font-family: verdana;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+    #button-container {
+      background: #fff;
+      border: 1px solid #d3d3d3;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+
+    .action-button {
+      background-color: transparent;
+      border: none;
+      color: #6e6e6e;
+      font-size: 16px;
+      height: 32px;
+      text-align: center;
+      width: 32px;
+    }
+
+    .action-button:hover {
+      background: #6e6e6e;
+      color: #e4e4e4;
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.11/"></script>
+
+  <script>
+    require([
+      "esri/Graphic",
+      "esri/Map",
+
+      "esri/layers/FeatureLayer",
+      "esri/layers/GraphicsLayer",
+
+      "esri/views/MapView",
+      "esri/widgets/Sketch/SketchViewModel",
+
+      "dojo/domReady!"
+    ], function(
+      Graphic, Map,
+      FeatureLayer, GraphicsLayer,
+      MapView, SketchViewModel
+    ) {
+
+      const gLayer = new GraphicsLayer();
+
+      const fLayer = new FeatureLayer({
+        url: "https://servicesdev1.arcgis.com/5uh3wwYLNzBuU0Eu/arcgis/rest/services/DevSummitTestLayers/FeatureServer/2",
+        outFields: ["*"],
+        popupEnabled: false,
+        id: "fLayer"
+      });
+
+      const map = new Map({
+        basemap: "gray-vector",
+        layers: [gLayer]
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 12,
+        center: [-77.615193, 43.151888]
+      });
+
+      view.when(function(evt) {
+
+        const query = fLayer.createQuery();
+
+        // Query the associated layer for Features to add to the GraphicsLayer
+        // We also want to update the features to use default symbology
+        // ... from the layer's renderer
+        fLayer.queryFeatures(query).then(function(response) {
+          response.features.forEach(function(feature) {
+            feature.symbol = fLayer.renderer.symbol;
+          });
+
+          gLayer.addMany(response.features);
+        });
+
+        // Set up the view model
+        // We also want to prevent 'update' workflow from automatically
+        // triggering on graphic click to keep the app focused on creation only
+        // so we set 'updateOnGraphicClick' to false
+        const sketchVM = new SketchViewModel({
+          layer: graphicsLayer,
+          view: view,
+          updateOnGraphicClick: false
+        });
+
+        // After creation is finished, we need to update the FeatureLayer
+        sketchVM.on("create", function(event) {
+          if (event.state === "complete") {
+            fLayer.applyEdits({ addFeatures: [event.graphic] });
+          }
+        });
+
+        // Activate the 'polygon' tool on button click
+        document.getElementById("polygonBtn").onclick = function(){
+          sketchVM.create("polygon");
+          view.focus();
+        };
+
+      });
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv">
+    <div id="button-container">
+      <button class="action-button esri-icon-polygon" id="polygonBtn" type="button" title="Draw Polygon"></button>
+    </div>
+  </div>
+</body>
+</html>
