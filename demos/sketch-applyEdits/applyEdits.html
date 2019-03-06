@@ -39,6 +39,7 @@
       MapView, Sketch
     ) {
 
+      // Used by Sketch to display newly created graphics
       const gLayer = new GraphicsLayer();
 
       const pointLayer = new FeatureLayer({
@@ -62,6 +63,7 @@
         id: "polygonLayer"
       });
 
+      // Create the map; add only FeatureLayer
       const map = new Map({
         basemap: "gray-vector",
         layers: [gLayer]
@@ -81,9 +83,9 @@
         // Associated FeatureLayers
         const featureLayers = [pointLayer, polylineLayer, polygonLayer];
 
-        // Add features from each layer to our GraphicsLayer
+        // Add features from each layer to our GraphicsLayer.
         // Sketch widget requires graphics to be on an associated GraphicsLayer
-        // ... to qualify for updating (and deletion)
+        // to qualify for updating (and deletion).
         featureLayers.forEach(function(layer) {
           addGraphicsToGraphicsLayer(layer);
         });
@@ -93,8 +95,8 @@
           view: view
         }, "sketch-container");
 
-        // After creating, updating or deleting a graphic, we need to
-        // ... update the associated FeatureLayer
+        // After creating, updating or deleting a graphic, we need
+        // to update the associated FeatureLayer
         sketch.on("create", function(event) {
           if (event.state === "complete") {
             updateFeatureLayer(event.tool, { addFeatures: [event.graphic] });
@@ -105,6 +107,8 @@
           if (event.state === "complete") {
             const graphics = event.graphics;
 
+            // Handle case when updating multiple features simultaneously.
+            // These features can come from different FeatureLayers.
             graphics.forEach(function(graphic) {
               updateFeatureLayer(graphic.geometry.type, { updateFeatures: [graphic] })
             });
@@ -114,6 +118,8 @@
         sketch.on("delete", function(event) {
           const graphics = event.graphics;
 
+          // Handle case when deleting multiple features simultaneously.
+          // These features can come from different FeatureLayers.
           graphics.forEach(function(graphic) {
             updateFeatureLayer(graphic.geometry.type, { deleteFeatures: [graphic] })
           });
@@ -121,8 +127,8 @@
       });
 
       // Identify the appropriate FeatureLayer to update
-      // ... based on the Sketch tool used to create the graphic
-      // Circle and Rectangle are grouped together with Polygon
+      // based on the Sketch tool used to create the graphic.
+      // Circle and Rectangle tools are grouped together with Polygon
       function updateFeatureLayer(tool, edits) {
         if (tool === "point") {
           applyEditsToLayer(pointLayer, edits);
@@ -137,13 +143,7 @@
 
       // Update the given layer with provided edits
       function applyEditsToLayer(layer, edits) {
-        layer.applyEdits(edits)
-          .then(function(results) {
-            console.log(results);
-          })
-          .catch(function(error) {
-            console.error(error);
-          });
+        layer.applyEdits(edits);
       }
 
       function addGraphicsToGraphicsLayer(layer) {

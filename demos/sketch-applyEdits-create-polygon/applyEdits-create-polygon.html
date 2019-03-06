@@ -62,18 +62,20 @@
       MapView, SketchViewModel
     ) {
 
-      const gLayer = new GraphicsLayer();
-
-      const fLayer = new FeatureLayer({
-        url: "https://servicesdev1.arcgis.com/5uh3wwYLNzBuU0Eu/arcgis/rest/services/DevSummitTestLayers/FeatureServer/2",
+      const polygonLayer = new FeatureLayer({
+        url: "https://servicesdev1.arcgis.com/5uh3wwYLNzBuU0Eu/arcgis/rest/services/DevSummit_Polygons_Layer/FeatureServer/0",
         outFields: ["*"],
         popupEnabled: false,
-        id: "fLayer"
+        id: "polygonLayer"
       });
 
+      // Used by SketchViewModel to display newly created graphics
+      const gLayer = new GraphicsLayer();
+
+      // Create the map; add both layers
       const map = new Map({
         basemap: "gray-vector",
-        layers: [gLayer]
+        layers: [gLayer, polygonLayer]
       });
 
       const view = new MapView({
@@ -84,43 +86,40 @@
       });
 
       view.when(function(evt) {
-
-        const query = fLayer.createQuery();
-
-        // Query the associated layer for Features to add to the GraphicsLayer
-        // We also want to update the features to use default symbology
-        // ... from the layer's renderer
-        fLayer.queryFeatures(query).then(function(response) {
-          response.features.forEach(function(feature) {
-            feature.symbol = fLayer.renderer.symbol;
-          });
-
-          gLayer.addMany(response.features);
-        });
-
         // Set up the view model
-        // We also want to prevent 'update' workflow from automatically
-        // triggering on graphic click to keep the app focused on creation only
-        // so we set 'updateOnGraphicClick' to false
         const sketchVM = new SketchViewModel({
-          layer: graphicsLayer,
-          view: view,
-          updateOnGraphicClick: false
+          layer: gLayer,
+          view: view
         });
 
-        // After creation is finished, we need to update the FeatureLayer
+        // After creation is finished, we need to update the FeatureLayer.
+        // We also want to remove the graphic from the GraphicsLayer
+        // because the new feature will show up after a successful layer refresh.
         sketchVM.on("create", function(event) {
           if (event.state === "complete") {
-            fLayer.applyEdits({ addFeatures: [event.graphic] });
+            gLayer.remove(event.graphic);
+            polygonLayer.applyEdits({ addFeatures: [event.graphic] });
           }
         });
 
         // Activate the 'polygon' tool on button click
-        document.getElementById("polygonBtn").onclick = function(){
+        polygonBtn.onclick = function(){
           sketchVM.create("polygon");
           view.focus();
         };
 
+        // Remove features when targetted by a ctrl+click combination
+        view.on("click", ["Control"], function(event) {
+          // Check if any graphics are in the clicked location
+          view.hitTest(event).then(function(response) {
+            // Found a graphic; remove from the FeatureLayer
+            if (response.results.length) {
+              polygonLayer.applyEdits({
+                deleteFeatures: [response.results[0].graphic]
+              });
+            }
+          });
+        })
       });
     });
 
