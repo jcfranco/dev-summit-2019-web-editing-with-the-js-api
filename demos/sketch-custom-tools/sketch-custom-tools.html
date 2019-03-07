@@ -68,6 +68,7 @@
       let cutActive = false;
 
       view.when((evt) => {
+
         // Add containers to view
         view.ui.add("sketch-container", "top-right");
         view.ui.add("cut-container", "top-right");
@@ -136,10 +137,10 @@
               graphic.geometry = geometryEngine.flipVertical(graphic.geometry);
             });
 
-            console.log("graphics", graphics);
-
+            // Reactivate current workflow to sync Sketch UI
             sketch.update(graphics, { tool: sketch.activeTool });
           }
+
           view.focus();
         };
       });

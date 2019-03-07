@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Sketch Validation</title>
+  <style>
+
+    html,
+    body,
+    #viewDiv {
+      font-family: verdana;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="https://jsdev.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://jsdev.arcgis.com/4.11/"></script>
+
+  <script>
+    require([
+
+      "esri/Graphic",
+      "esri/Map",
+
+      "esri/geometry/geometryEngine",
+      "esri/geometry/Point",
+      "esri/geometry/Polygon",
+      "esri/geometry/Polyline",
+
+      "esri/layers/GraphicsLayer",
+      "esri/views/MapView",
+      "esri/symbols/SimpleMarkerSymbol",
+      "esri/widgets/Sketch/SketchViewModel",
+
+      "dojo/domReady!"
+    ], function(
+      Graphic, Map,
+      GeometryEngine, Point, Polygon, Polyline,
+      GraphicsLayer, MapView, SimpleMarkerSymbol, SketchViewModel
+    ) {
+
+      const backgroundGraphicsLayer = new GraphicsLayer();
+      const activeGraphicsLayer = new GraphicsLayer();
+
+      const map = new Map({
+        basemap: "dark-gray-vector",
+        layers: [backgroundGraphicsLayer, activeGraphicsLayer]
+      });
+
+      const view = new MapView({
+        container: "viewDiv",
+        map: map,
+        zoom: 13,
+        center: [-116.53816, 33.82593]
+      });
+
+      const pointSymbol = {
+        type: "simple-marker",
+        color: [ 0, 150, 0, 0.2 ],
+        outline: {
+          color: [ 255, 255, 255 ],
+          width: 2
+        }
+      }
+
+      const lineSymbol = {
+        type: "simple-line",
+        color: [ 255, 255, 255 ],
+        width: 2
+      }
+
+      const greenFill = {
+        type: "simple-fill",
+        color: [ 0, 150, 0, 0.2 ],
+        outline: {
+          color: [ 255, 255, 255 ],
+          width: 2
+        }
+      };
+
+      const redFill = {
+        type: "simple-fill",
+        color: [ 150, 0, 0, 0.2 ],
+        outline: {
+          color: [ 255, 255, 255 ],
+          width: 2
+        }
+      };
+
+      const greyFill = {
+        type: "simple-fill",
+        color: [ 150, 150, 150, 0 ],
+        outline: {
+          color: [ 255, 255, 255 ],
+          width: 2
+        }
+      };
+
+      const dashedFill = {
+        type: "simple-fill",
+        color: [0, 0, 0, 0],
+        outline: {
+          style: "dash",
+          color: [150, 150, 150, 0.5],
+          width: 2
+        }
+      };
+
+      view.when(function(evt) {
+
+        const snapLine = new Polyline({
+          paths: [
+            [-12975168.58240514, 4007807.774022221],
+            [-12972856.362299519, 4009279.1868167087],
+            [-12973200.3289268, 4008037.085107076],
+            [-12969282.93122719, 4009699.5904722763],
+            [-12967811.518432703, 4007349.1518525104],
+            [-12967601.31660492, 4008705.9091045707],
+            [-12966225.450095788, 4008744.1276187133]
+          ],
+          spatialReference: view.spatialReference
+        });
+
+        const snapPoint = new Point({
+          x: -12972856.362299519,
+          y: 4009279.1868167087,
+          spatialReference: view.spatialReference
+        });
+
+        const container = new Polygon({
+          rings: [
+            [-12974179.678351752, 4007036.2377679716],
+            [-12971857.90361753, 4007036.2377679716],
+            [-12971857.90361753, 4004752.681547892],
+            [-12974179.678351752, 4004752.681547892],
+            [-12974179.678351752, 4007036.2377679716]
+          ],
+          spatialReference: view.spatialReference
+        });
+
+        const insidePolygon = new Polygon({
+          rings: [
+            [-12973644.619153742, 4006615.834112392],
+            [-12973219.438183894, 4006405.632284602],
+            [-12972689.156300152, 4006711.380397751],
+            [-12972450.290586755, 4005712.9217157494],
+            [-12973291.097897913, 4005306.850002974],
+            [-12973988.585781034, 4006037.77908597],
+            [-12973644.619153742, 4006615.834112392]
+          ],
+          spatialReference: view.spatialReference
+        });
+
+        const outsidePolygon = new Polygon({
+          rings: [
+            [-12970737.623421688, 4004697.7424338656],
+            [-12970670.74102189, 4003742.279580304],
+            [-12969294.874512829, 4003780.4980944446],
+            [-12969352.202284008, 4003197.6657537716],
+            [-12969743.942054003, 4002366.4130711714],
+            [-12971167.581705809, 4002251.7575287437],
+            [-12972318.914444301, 4002782.0394124733],
+            [-12972228.14547325, 4004095.8008361217],
+            [-12970737.623421688, 4004697.7424338656]
+          ],
+          spatialReference: view.spatialReference
+        });
+
+        const lineGraphic = new Graphic(snapLine, lineSymbol);
+        const snapGraphic = new Graphic(snapPoint, pointSymbol);
+        const containerGraphic = new Graphic(container, greyFill);
+        const insideGraphic = new Graphic(insidePolygon, greenFill);
+        const outsideGraphic = new Graphic(outsidePolygon, greenFill);
+
+        // The clone will represent the last 'valid' geometry
+        // By using a clone, we avoid directly modifying the geometry
+        // of the original graphic, so we can do continuous validation.
+        let clone = null;
+
+        // We're adding the two validation target graphics to a different layer
+        // to prevent them from being targetable by SketchViewModel.
+        backgroundGraphicsLayer.addMany([lineGraphic, containerGraphic]);
+        activeGraphicsLayer.addMany([snapGraphic, insideGraphic, outsideGraphic]);
+
+        const sketchVM = new SketchViewModel({
+          layer: activeGraphicsLayer,
+          view: view,
+          // Set the default tool for new update operations
+          defaultUpdateOptions: {
+            tool: "move",
+            enableMoveAllGraphics: false
+          },
+          updatePointSymbol: {
+            type: "simple-marker",
+            size: 20,
+            color: [0, 200, 255, 0.5],
+            outline: {
+              color: "black",
+              width: 1
+            }
+          }
+        });
+
+        sketchVM.on("update", (event) => {
+          if (event.toolEventInfo) {
+            // Save reference the graphic being moved
+            const toolInfo = event.toolEventInfo;
+            const graphic = toolInfo.mover;
+
+            if (toolInfo.type === "move-start") {
+              // Clone the graphic being moved and add it to the GraphicsLayer
+              clone = graphic.clone();
+              backgroundGraphicsLayer.add(clone);
+
+              // Since we're using the clone to temporarily display the
+              // modified geometry, we need to hide the primary graphic.
+              if (graphic === snapGraphic) {
+                graphic.visible = false;
+                return;
+              }
+
+              // Update symbol of the original graphic to indicate movement
+              graphic.symbol = dashedFill;
+            }
+            else if (toolInfo.type === "move") {
+              // Snapping (graphic snaps to the associated polyline)
+              if (graphic === snapGraphic) {
+                const nearest = GeometryEngine.nearestCoordinate(snapLine, graphic.geometry);
+
+                clone.geometry = nearest.coordinate;
+              }
+              // Collision (graphic must be inside the boundary)
+              else if (graphic === insideGraphic) {
+                const contains = GeometryEngine.contains(container, graphic.geometry);
+
+                // Update the clone (green graphic) if geometry is valid
+                if (contains) {
+                  clone.geometry = graphic.geometry;
+                }
+              }
+              // Collision (graphic must be outside the boundary)
+              else if (graphic === outsideGraphic) {
+                const contains = GeometryEngine.contains(container, graphic.geometry),
+                      overlaps = GeometryEngine.overlaps(container, graphic.geometry);
+
+                if (!contains && !overlaps) {
+                  clone.geometry = graphic.geometry;
+                }
+              }
+            }
+            else if (toolInfo.type === "move-stop") {
+              // Snapping
+              if (graphic === snapGraphic) {
+                graphic.visible = true;
+              }
+              // Collision
+              else {
+                // Revert symbol change
+                graphic.symbol = sketchVM.updatePolygonSymbol;
+
+                if (graphic === insideGraphic) {
+                  const contains = GeometryEngine.contains(container, graphic.geometry);
+
+                  // Update the clone, if geometry is valid
+                  if (contains) {
+                    clone.geometry = graphic.geometry;
+                  }
+                }
+                else if (graphic === outsideGraphic) {
+                  const contains = GeometryEngine.contains(container, graphic.geometry),
+                        overlaps = GeometryEngine.overlaps(container, graphic.geometry);
+
+                  // Update the clone, if geometry is valid
+                  if (!contains && !overlaps) {
+                    clone.geometry = graphic.geometry;
+                  }
+                }
+              }
+
+              // Update original graphic with valid geometry
+              // and remove the clone.
+              graphic.geometry = clone.geometry;
+              backgroundGraphicsLayer.remove(clone);
+              clone = null;
+            }
+          }
+        });
+
+      });
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>
