@@ -55,8 +55,8 @@
       const view = new MapView({
         container: "viewDiv",
         map: map,
-        zoom: 13,
-        center: [-116.53816, 33.82593]
+        zoom: 12,
+        center: [-116.50816, 33.82593]
       });
 
       const pointSymbol = {
@@ -77,15 +77,6 @@
       const greenFill = {
         type: "simple-fill",
         color: [ 0, 150, 0, 0.2 ],
-        outline: {
-          color: [ 255, 255, 255 ],
-          width: 2
-        }
-      };
-
-      const redFill = {
-        type: "simple-fill",
-        color: [ 150, 0, 0, 0.2 ],
         outline: {
           color: [ 255, 255, 255 ],
           width: 2
@@ -115,20 +106,31 @@
 
         const snapLine = new Polyline({
           paths: [
-            [-12975168.58240514, 4007807.774022221],
-            [-12972856.362299519, 4009279.1868167087],
-            [-12973200.3289268, 4008037.085107076],
-            [-12969282.93122719, 4009699.5904722763],
-            [-12967811.518432703, 4007349.1518525104],
-            [-12967601.31660492, 4008705.9091045707],
-            [-12966225.450095788, 4008744.1276187133]
+            [-12972939.965299219, 4009685.2585294326],
+            [-12974526.033636134, 4008290.2827632297],
+            [-12975328.622433126, 4006876.197739956],
+            [-12975615.261289196, 4005137.2553464705],
+            [-12975309.513176056, 4003283.6574105574],
+            [-12974201.176265921, 4001449.168731716],
+            [-12972806.200499719, 4000340.8318215823],
+            [-12970895.274792593, 3999691.1170811593],
+            [-12968391.962116256, 3999958.6466801567],
+            [-12966767.675265199, 4000837.672505435],
+            [-12965563.792069709, 4002270.8667857805],
+            [-12964799.421786858, 4004239.120264121],
+            [-12965009.62361464, 4006837.9792258134],
+            [-12966175.28829599, 4008787.123447083],
+            [-12967990.667717759, 4010067.4436708577],
+            [-12970455.761879953, 4010526.0658405684],
+            [-12972901.746785076, 4009685.2585294326]
           ],
           spatialReference: view.spatialReference
         });
 
+        // Shares a vertex with the snapLine
         const snapPoint = new Point({
-          x: -12972856.362299519,
-          y: 4009279.1868167087,
+          x: -12972939.965299219,
+          y: 4009685.2585294326,
           spatialReference: view.spatialReference
         });
 
@@ -234,17 +236,18 @@
 
                 clone.geometry = nearest.coordinate;
               }
-              // Collision (graphic must be inside the boundary)
+              // Collision (graphic must be inside the container)
               else if (graphic === insideGraphic) {
                 const contains = GeometryEngine.contains(container, graphic.geometry);
 
-                // Update the clone (green graphic) if geometry is valid
+                // Update the clone if geometry is valid
                 if (contains) {
                   clone.geometry = graphic.geometry;
                 }
               }
-              // Collision (graphic must be outside the boundary)
+              // Collision (graphic must be outside the container)
               else if (graphic === outsideGraphic) {
+                // Use geometry engine to see if the graphic touches, or is inside the boundary graphic
                 const contains = GeometryEngine.contains(container, graphic.geometry),
                       overlaps = GeometryEngine.overlaps(container, graphic.geometry);
 
@@ -266,12 +269,13 @@
                 if (graphic === insideGraphic) {
                   const contains = GeometryEngine.contains(container, graphic.geometry);
 
-                  // Update the clone, if geometry is valid
+                  // Update the clone if geometry is valid
                   if (contains) {
                     clone.geometry = graphic.geometry;
                   }
                 }
                 else if (graphic === outsideGraphic) {
+                  // Use geometry engine to see if the graphic touches, or is inside the boundary graphic
                   const contains = GeometryEngine.contains(container, graphic.geometry),
                         overlaps = GeometryEngine.overlaps(container, graphic.geometry);
 
@@ -283,8 +287,9 @@
               }
 
               // Update original graphic with valid geometry
-              // and remove the clone.
               graphic.geometry = clone.geometry;
+
+              // Remove the clone
               backgroundGraphicsLayer.remove(clone);
               clone = null;
             }
