@@ -140,15 +140,9 @@ ArcGIS API for JavaScript
 
 ## Recap
 
-<<<<<<< Updated upstream
 * Web editing
 * Editor widgets
-* Custom workflows 
-=======
-* Background
-* Out-of-the-box Editing
 * Custom workflows
->>>>>>> Stashed changes
 
 ---
 
