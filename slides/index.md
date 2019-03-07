@@ -47,8 +47,8 @@ ArcGIS API for JavaScript
 ## Web editing in the browser
 
 1. what to add: [FeatureTemplates](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html)
-2. geometry: [Sketch](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html)
-3. fields/attributes: [FeatureTemplates](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html)
+2. geometry: [Sketch](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html)
+3. fields/attributes: [FeatureForm](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html)
 4. [FeatureLayer.applyEdit](http://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#applyEdits)
 <hr>
 5. Editor widget
