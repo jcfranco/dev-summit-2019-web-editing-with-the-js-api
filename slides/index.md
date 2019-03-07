@@ -87,18 +87,18 @@ ArcGIS API for JavaScript
 * Configurable<!-- .element: class="fragment" data-fragment-index="2" -->
   * Field order
   * Label/description
-  * Groups 
+  * Groups
   * Visibility expression (✨New in 4.11✨)
 
 ---
 
-## `FeatureForm` Demo 
+## `FeatureForm` Demo
 
 [<img src="images/ff-demo.png" height="400" style="margin-left:10px; margin-right: 10px;"/>](../../demos/feature-form/index.html)
 
 ---
 
-## Advanced `FeatureForm` Demo 
+## Advanced `FeatureForm` Demo
 
 [<img src="images/form-based-editing.gif" height="400" style="margin-left:10px; margin-right: 10px;"/>](https://jcfranco.github.io/dev-summit-2019-plenary-demos/form-based-editing/)
 
@@ -108,17 +108,29 @@ ArcGIS API for JavaScript
 
 # Geometry-based
 
-<img src="images/sketch-in-action.png" height="400" style="margin-left:10px; margin-right: 10px;"/>
+<img src="images/sketch-basic-updating.png" height="400" style="margin-left:10px; margin-right: 10px;"/>
 
 ☝ `Sketch`
 
 ---
 
+## [`Sketch`](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html)
+
+* Provides ability to manipulate geometries<!-- .element: class="fragment" data-fragment-index="1" -->
+* Configurable<!-- .element: class="fragment" data-fragment-index="2" -->
+  * Tool options (create and update)
+  * Internal view listener for activating update workflow
+
+---
+
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
 
-## Geometry-based
+## Geometry-based Demos
 
-* Demo
+* Sketch with applyEdits
+* SketchViewModel with applyEdits
+* Sketch with custom tools
+* Sketch with custom snapping and validation
 
 <!-- add screenshot for geometry-based demo -->
 
@@ -128,9 +140,15 @@ ArcGIS API for JavaScript
 
 ## Recap
 
+<<<<<<< Updated upstream
 * Web editing
 * Editor widgets
 * Custom workflows 
+=======
+* Background
+* Out-of-the-box Editing
+* Custom workflows
+>>>>>>> Stashed changes
 
 ---
 
