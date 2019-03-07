@@ -18,8 +18,8 @@
 
   </style>
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
-  <script src="https://js.arcgis.com/4.11/"></script>
+  <link rel="stylesheet" href="https://jsdev.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://jsdev.arcgis.com/4.11/"></script>
 
   <script>
     require([
@@ -63,7 +63,7 @@
         id: "polygonLayer"
       });
 
-      // Create the map; add only FeatureLayer
+      // Create the map; add the GraphicsLayer
       const map = new Map({
         basemap: "gray-vector",
         layers: [gLayer]
@@ -78,12 +78,13 @@
 
       view.when(function(evt) {
 
+        // Add container to view
         view.ui.add("sketch-container", "top-right");
 
         // Associated FeatureLayers
         const featureLayers = [pointLayer, polylineLayer, polygonLayer];
 
-        // Add features from each layer to our GraphicsLayer.
+        // Add features from each layer to the GraphicsLayer.
         // Sketch widget requires graphics to be on an associated GraphicsLayer
         // to qualify for updating (and deletion).
         featureLayers.forEach(function(layer) {
@@ -96,7 +97,7 @@
         }, "sketch-container");
 
         // After creating, updating or deleting a graphic, we need
-        // to update the associated FeatureLayer
+        // to update the associated FeatureLayer.
         sketch.on("create", function(event) {
           if (event.state === "complete") {
             updateFeatureLayer(event.tool, { addFeatures: [event.graphic] });
@@ -130,15 +131,13 @@
       // based on the Sketch tool used to create the graphic.
       // Circle and Rectangle tools are grouped together with Polygon
       function updateFeatureLayer(tool, edits) {
-        if (tool === "point") {
-          applyEditsToLayer(pointLayer, edits);
-        }
-        else if (tool === "polyline") {
-          applyEditsToLayer(polylineLayer, edits);
-        }
-        else {
-          applyEditsToLayer(polygonLayer, edits);
-        }
+        const layer = tool === "point"
+            ? pointLayer
+            : tool === "polyline"
+                ? polylineLayer
+                : polygonLayer;
+
+        applyEditsToLayer(layer, edits);
       }
 
       // Update the given layer with provided edits
@@ -149,9 +148,9 @@
       function addGraphicsToGraphicsLayer(layer) {
         const query = layer.createQuery();
 
-        // Query the associated layer for Features to add to the GraphicsLayer
+        // Query the associated layer for Features to add to the GraphicsLayer.
         // We also want to update the features to use default symbology
-        // ... from the layer's renderer
+        // from the layer's renderer.
         layer.queryFeatures(query).then(function(response) {
           response.features.forEach(function(feature) {
             feature.symbol = layer.renderer.symbol;

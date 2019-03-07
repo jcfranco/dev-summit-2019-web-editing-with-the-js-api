@@ -19,9 +19,6 @@
     #button-container {
       background: #fff;
       border: 1px solid #d3d3d3;
-      position: absolute;
-      right: 15px;
-      top: 15px;
     }
 
     .action-button {
@@ -41,8 +38,8 @@
 
   </style>
 
-  <link rel="stylesheet" href="https://js.arcgis.com/4.11/esri/css/main.css">
-  <script src="https://js.arcgis.com/4.11/"></script>
+  <link rel="stylesheet" href="https://jsdev.arcgis.com/4.11/esri/css/main.css">
+  <script src="https://jsdev.arcgis.com/4.11/"></script>
 
   <script>
     require([
@@ -86,6 +83,10 @@
       });
 
       view.when(function(evt) {
+
+        // Add container to view
+        view.ui.add("button-container", "top-right");
+
         // Set up the view model
         const sketchVM = new SketchViewModel({
           layer: gLayer,
