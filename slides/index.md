@@ -21,19 +21,43 @@
 
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
 
-## Background
+## Data in a feature servive
+
+* one or more feature layers
+* editable
 
 ---
 
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
 
-## OOB Editing
+## Edit your feature layer
+
+<u>ArcGIS REST API</u>
+
+ArcGIS Online
+
+ArcGIS API for Python
+
+ArcGIS API for JavaScript
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
+
+## Web editing in the browser
+
+1. what to add: [FeatureTemplates](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html)
+2. geometry: [Sketch](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html)
+3. fields/attributes: [FeatureTemplates](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html)
+4. [FeatureLayer.applyEdit](http://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#applyEdits)
+<hr>
+5. Editor widget
 
 ---
 
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
 
-## `Editor` 
+## Editor widget
 
 <img src="./images/editor-in-action.gif" height="400" style="margin-left:10px; margin-right: 10px;"/>
 
@@ -41,7 +65,7 @@
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
 
 # Custom Workflows
 
