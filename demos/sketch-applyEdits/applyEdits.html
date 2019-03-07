@@ -76,7 +76,7 @@
         center: [-71.016264, 42.370486]
       });
 
-      view.when(function(evt) {
+      view.when((evt) => {
 
         // Add container to view
         view.ui.add("sketch-container", "top-right");
@@ -87,7 +87,7 @@
         // Add features from each layer to the GraphicsLayer.
         // Sketch widget requires graphics to be on an associated GraphicsLayer
         // to qualify for updating (and deletion).
-        featureLayers.forEach(function(layer) {
+        featureLayers.forEach((layer) => {
           addGraphicsToGraphicsLayer(layer);
         });
 
@@ -98,30 +98,30 @@
 
         // After creating, updating or deleting a graphic, we need
         // to update the associated FeatureLayer.
-        sketch.on("create", function(event) {
+        sketch.on("create", (event) => {
           if (event.state === "complete") {
             updateFeatureLayer(event.tool, { addFeatures: [event.graphic] });
           }
         });
 
-        sketch.on("update", function(event) {
+        sketch.on("update", (event) => {
           if (event.state === "complete") {
             const graphics = event.graphics;
 
             // Handle case when updating multiple features simultaneously.
             // These features can come from different FeatureLayers.
-            graphics.forEach(function(graphic) {
+            graphics.forEach((graphic) => {
               updateFeatureLayer(graphic.geometry.type, { updateFeatures: [graphic] })
             });
           }
         });
 
-        sketch.on("delete", function(event) {
+        sketch.on("delete", (event) => {
           const graphics = event.graphics;
 
           // Handle case when deleting multiple features simultaneously.
           // These features can come from different FeatureLayers.
-          graphics.forEach(function(graphic) {
+          graphics.forEach((graphic) => {
             updateFeatureLayer(graphic.geometry.type, { deleteFeatures: [graphic] })
           });
         });
@@ -151,20 +151,17 @@
         // Query the associated layer for Features to add to the GraphicsLayer.
         // We also want to update the features to use default symbology
         // from the layer's renderer.
-        layer.queryFeatures(query).then(function(response) {
-          response.features.forEach(function(feature) {
+        layer.queryFeatures(query).then((response) => {
+          response.features.forEach((feature) => {
             feature.symbol = layer.renderer.symbol;
           });
 
           gLayer.addMany(response.features);
         });
       }
-
     });
-
   </script>
 </head>
-
 <body>
   <div id="viewDiv">
     <div id="sketch-container"></div>

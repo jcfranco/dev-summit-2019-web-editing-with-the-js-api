@@ -82,7 +82,7 @@
         center: [-77.615193, 43.151888]
       });
 
-      view.when(function(evt) {
+      view.when((evt) => {
 
         // Add container to view
         view.ui.add("button-container", "top-right");
@@ -96,7 +96,7 @@
         // After creation is finished, we need to update the FeatureLayer.
         // We also want to remove the graphic from the GraphicsLayer
         // because the new feature will show up after a successful layer refresh.
-        sketchVM.on("create", function(event) {
+        sketchVM.on("create", (event) => {
           if (event.state === "complete") {
             gLayer.remove(event.graphic);
             polygonLayer.applyEdits({ addFeatures: [event.graphic] });
@@ -104,15 +104,15 @@
         });
 
         // Activate the 'polygon' tool on button click
-        polygonBtn.onclick = function(){
+        polygonBtn.onclick = () => {
           sketchVM.create("polygon");
           view.focus();
         };
 
         // Remove features when targetted by a ctrl+click combination
-        view.on("click", ["Control"], function(event) {
+        view.on("click", ["Control"], (event) => {
           // Check if any graphics are in the clicked location
-          view.hitTest(event).then(function(response) {
+          view.hitTest(event).then((response) => {
             // Found a graphic; remove from the FeatureLayer
             if (response.results.length) {
               polygonLayer.applyEdits({
