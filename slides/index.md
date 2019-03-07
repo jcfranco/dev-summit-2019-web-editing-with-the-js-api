@@ -13,7 +13,7 @@
 ## Agenda
 
 * Background
-* OOB Editing
+* Out-of-the-box Editing
 * Custom workflows
 * Q&A
 
@@ -21,7 +21,7 @@
 
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
 
-## Data in a feature servive
+## Data in a feature service
 
 * One or more feature layers
 * Editable
@@ -71,26 +71,6 @@ ArcGIS API for JavaScript
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-3.png" data-background-size="cover" -->
-
-# Geometry-based
-
-<img src="images/sketch-in-action.png" height="400" style="margin-left:10px; margin-right: 10px;"/>
-
-☝ `Sketch`
-
----
-
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
-
-## Geometry-based
-
-* Demo
-
-<!-- add screenshot for geometry-based demo -->
-
----
-
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-5.png" data-background-size="cover" -->
 
 ## Form-based
@@ -118,9 +98,29 @@ ArcGIS API for JavaScript
 
 ---
 
-## `FeatureForm` Recap 
+## Advanced `FeatureForm` Demo 
 
-[<img src="images/ff-demo.png" height="400" style="margin-left:10px; margin-right: 10px;"/>](../../demos/feature-form/index.html)
+[<img src="images/form-based-editing.gif" height="400" style="margin-left:10px; margin-right: 10px;"/>](https://jcfranco.github.io/dev-summit-2019-plenary-demos/form-based-editing/)
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-3.png" data-background-size="cover" -->
+
+# Geometry-based
+
+<img src="images/sketch-in-action.png" height="400" style="margin-left:10px; margin-right: 10px;"/>
+
+☝ `Sketch`
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
+
+## Geometry-based
+
+* Demo
+
+<!-- add screenshot for geometry-based demo -->
 
 ---
 
@@ -129,8 +129,15 @@ ArcGIS API for JavaScript
 ## Recap
 
 * Background
-* OOB Editing
+* Out-of-the-box Editing
 * Custom workflows 
+
+---
+
+## Additional Resources
+
+- [JavaScript API SDK](https://developers.arcgis.com/javascript/)
+- [Arcade - expression language](https://developers.arcgis.com/javascript/latest/guide/arcade/index.html)
 
 ---
 
