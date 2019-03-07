@@ -77,7 +77,7 @@
           view: view
         }, "sketch-container");
 
-        sketch.on("create", function(event) {
+        sketch.on("create", (event) => {
           // Cut operation finished
           if (event.state === "complete" && cutActive) {
             const cutGraphic = event.graphic;
@@ -122,6 +122,26 @@
           sketch.create("polyline");
           view.focus();
         };
+
+        document.getElementById("flipBtn").onclick = () => {
+          const tool = sketch.activeTool;
+
+          // Check if an update operation is active
+          if (tool === "transform" || tool === "reshape" || tool === "move") {
+            // Shallow clone graphics currently being updated
+            const graphics = sketch.updateGraphics.items.slice(0);
+
+            // Update the geometry of each graphic individually
+            graphics.forEach((graphic) => {
+              graphic.geometry = geometryEngine.flipVertical(graphic.geometry);
+            });
+
+            console.log("graphics", graphics);
+
+            sketch.update(graphics, { tool: sketch.activeTool });
+          }
+          view.focus();
+        };
       });
     });
   </script>
@@ -132,6 +152,7 @@
     <div id="sketch-container"></div>
     <div id="cut-container">
       <button class="action-button esri-icon-edit" id="cutBtn" type="button" title="Cut"></button>
+      <button class="action-button esri-icon-refresh" id="flipBtn" type="button" title="Flip"></button>
     </div>
   </div>
 </body>
