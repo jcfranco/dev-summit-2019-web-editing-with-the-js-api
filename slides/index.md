@@ -59,7 +59,7 @@ ArcGIS API for JavaScript
 
 ## Editor widget
 
-<img src="./images/editor-in-action.gif" height="400" style="margin-left:10px; margin-right: 10px;"/>
+[<img src="./images/editor-in-action.gif" height="400" style="margin-left:10px; margin-right: 10px;"/>](../demos/basic-editing/)
 
 ✨**New in 4.11**✨
 
