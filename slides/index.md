@@ -2,9 +2,9 @@
 
 # Web Editing with the ArcGIS API for JavaScript
 
-### Bjorn Svensson
-### Jonathan Uihlein
-### JC Franco
+#### Bjorn Svensson
+#### Jonathan Uihlein
+#### JC Franco
 
 ---
 
