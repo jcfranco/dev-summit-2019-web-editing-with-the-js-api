@@ -33,28 +33,28 @@
       max-height: 99vh;
     }
   </style>
-    <script>
-      var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
-      window.dojoConfig = {
-        packages: [
-          {
-            name: "app",
-            location: locationPath + "/app"
-          }
-        ]
-      };
-    </script>
-    <script src="https://js.arcgis.com/4.11"></script>
-    <script>
-      require(["app"]);
-    </script>
-  </head>
-  <body>
-    <div id="viewDiv"></div>
-    <div id="update" class="esri-widget esri-hidden">
-      <div id="form" class="scroller esri-component"></div>
-      <input type="button" class="esri-button" value="Update" id="btnUpdate">
-    </div>
-  </body>
+  <script>
+    var locationPath = location.pathname.replace(/\/[^\/]+$/, "");
+    window.dojoConfig = {
+      packages: [
+        {
+          name: "app",
+          location: locationPath + "/app"
+        }
+      ]
+    };
+  </script>
+  <script src="https://js.arcgis.com/4.11"></script>
+  <script>
+    require(["app"]);
+  </script>
+</head>
+<body>
+  <div id="viewDiv"></div>
+  <div id="update" class="esri-widget esri-hidden">
+    <div id="form" class="scroller esri-component"></div>
+    <input type="button" class="esri-button" value="Update" id="btnUpdate">
+  </div>
+</body>
 
 </html>
