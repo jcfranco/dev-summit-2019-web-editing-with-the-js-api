@@ -12,7 +12,7 @@ fieldConfig: [
   { name: "Verified" },
   { name: "Reviewer" },
   { name: "InteralID", label: "Internal ID" } // 'fix' typo :)
-];
+]
 ```
 
 #### Reorder field
@@ -25,7 +25,7 @@ fieldConfig: [
   { name: "Verified" },
   { name: "Reviewer" }
   { name: "InteralID", label: "Internal ID" } // 'fix' typo :)
-];
+]
 ```
 
 #### Omit field
@@ -38,7 +38,7 @@ fieldConfig: [
   { name: "Verified" },
   { name: "Reviewer" }
   // hide internal ID by excluding it
-];
+]
 ```
 
 #### Describe field
@@ -54,7 +54,7 @@ fieldConfig: [
   { name: "DATE_OF_EN", label: "Date of Encounter" },
   { name: "Verified" },
   { name: "Reviewer" }
-];
+]
 ```
 
 #### Provide list of options†
@@ -79,7 +79,7 @@ fieldConfig: [
   { name: "DATE_OF_EN", label: "Date of Encounter" },
   { name: "Verified" },
   { name: "Reviewer" }
-];
+]
 ```
 
 † cannot override service-defined codes
@@ -106,7 +106,7 @@ fieldConfig: [
   { name: "DATE_OF_EN", label: "Date of Encounter" },
   { name: "Verified", editable: false },
   { name: "Reviewer", editable: false }
-];
+]
 ```
 
 † cannot enable if editing is disallowed by service
@@ -200,5 +200,5 @@ fieldConfig: [
       { name: "Reviewer", editable: false }
     ]
   }
-];
+]
 ```
