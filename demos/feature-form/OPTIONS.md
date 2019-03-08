@@ -24,7 +24,7 @@ fieldConfig: [
   { name: "DATE_OF_EN", label: "Date of Encounter" },
   { name: "Verified" },
   { name: "Reviewer" }
-  // keep internal ID internal by excluding it
+  { name: "InteralID", label: "Internal ID" } // 'fix' typo :)
 ];
 ```
 
@@ -37,7 +37,7 @@ fieldConfig: [
   { name: "DATE_OF_EN", label: "Date of Encounter" },
   { name: "Verified" },
   { name: "Reviewer" }
-  // keep internal ID internal by excluding it
+  // hide internal ID by excluding it
 ];
 ```
 
