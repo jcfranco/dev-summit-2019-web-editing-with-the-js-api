@@ -10,6 +10,7 @@ let highlight: IHandle;
 let editFeature: Graphic;
 
 const updateContainer = document.getElementById("update");
+const updateButton = document.getElementById("btnUpdate");
 
 //----------------------------------
 //  set up map
@@ -122,25 +123,25 @@ form.on("submit", () => {
 //  set up form submit
 //----------------------------------
 
-document.getElementById("btnUpdate").onclick = () => {
+updateButton.onclick = () => {
   // fires feature form's submit event.
   form.submit();
 };
 
 // call FeatureLayer.applyEdits()
 function applyAttributeUpdates(updatedFeature: Graphic) {
-  document.getElementById("btnUpdate").style.cursor = "progress";
+  updateButton.style.cursor = "progress";
 
   featureLayer
     .applyEdits({ updateFeatures: [updatedFeature] })
-    .then(({ addFeaturesResult }) => {
-      const [first] = addFeaturesResult;
+    .then(({ updateFeatureResults }) => {
+      const [first] = updateFeatureResults;
 
       if (first) {
         selectFeature(first.objectId);
       }
 
-      document.getElementById("btnUpdate").style.cursor = "pointer";
+      updateButton.style.cursor = "pointer";
     })
     .catch(error => {
       console.error(
@@ -148,7 +149,7 @@ function applyAttributeUpdates(updatedFeature: Graphic) {
         [ applyEdits ] FAILURE: ${error}`
       );
 
-      document.getElementById("btnUpdate").style.cursor = "pointer";
+      updateButton.style.cursor = "pointer";
     });
 }
 
