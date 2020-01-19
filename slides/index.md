@@ -2,7 +2,7 @@
 
   <h1 style="text-align: left; font-size: 80px;">Presentation Title</h1>
   <p style="text-align: left; font-size: 30px;">Tom Wayson</p>
-  <p style="text-align: left; font-size: 30px;"><a href="../node_modules/esri-reveal.js-templates/https://github.com/tomwayson">@tomwayson</a></p>
+  <p style="text-align: left; font-size: 30px;"><a href="https://github.com/tomwayson">@tomwayson</a></p>
   <!-- TODO: shorten URL -->
   <p style="text-align: left; font-size: 30px;">slides: <a href="https://tomwayson.github.io/fed-gis-2020-web-editing-with-the-js-api/slides/#/"><code>https://tomwayson.github.io/fed-gis-2020-web-editing-with-the-js-api/slides/#/</code></a></p>
   
