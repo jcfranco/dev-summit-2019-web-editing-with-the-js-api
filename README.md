@@ -1,9 +1,10 @@
-# [Web Editing with the ArcGIS API for JavaScript](https://devsummit2019.schedule.esri.com/schedule/1935651005)
+<!-- TODO: link to the talk once the agenda is up -->
+# ArcGIS API for JavaScript: Web Editing
 
-[Preview presentation](https://jcfranco.github.io/dev-summit-2019-web-editing-with-the-js-api/slides/#/)
+[Preview presentation](https://tomwayson.github.io/fed-gis-2020-web-editing-with-the-js-api/slides/#/)
 
-To be presented at [Esri Developer Summit 2019](http://www.esri.com/events/devsummit).
+To be presented at [Esri Federal GIS Conference 2020](https://www.esri.com/en-us/about/events/federal-gis-conference/overview).
 
-Presenters: Bjorn Svensson, Jonathan Uihlein, Juan Carlos Franco, Esri
+Presenters: Tom Wayson
 
 Discover the next-generation web editing experience using version 4 of the ArcGIS API for JavaScript. You will learn how to enable and customize the API's editing components as well as create custom web mapping applications for various editing scenarios.

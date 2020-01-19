@@ -1,14 +1,19 @@
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-1.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-1.png" data-background-size="cover" style="padding-left: 80px;" -->
 
-# Web Editing with the ArcGIS API for JavaScript
-
-#### Bjorn Svensson
-#### Jonathan Uihlein
-#### JC Franco
+  <h1 style="text-align: left; font-size: 80px;">Presentation Title</h1>
+  <p style="text-align: left; font-size: 30px;">Tom Wayson</p>
+  <p style="text-align: left; font-size: 30px;"><a href="../node_modules/esri-reveal.js-templates/https://github.com/tomwayson">@tomwayson</a></p>
+  <!-- TODO: shorten URL -->
+  <p style="text-align: left; font-size: 30px;">slides: <a href="https://tomwayson.github.io/fed-gis-2020-web-editing-with-the-js-api/slides/#/"><code>https://tomwayson.github.io/fed-gis-2020-web-editing-with-the-js-api/slides/#/</code></a></p>
+  
+  <!-- Add these rows to push your text up so it is not interfering with the event name. Test on your actual projector! -->
+  <p>&nbsp;</p> 
+  <p>&nbsp;</p>
+  <!-- /end spacer rows -->
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-3.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-3.png" data-background-size="cover" -->
 
 ## Agenda
 
@@ -19,7 +24,7 @@
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
 
 ## Data in a feature service
 
@@ -28,7 +33,7 @@
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
 
 ## Edit your feature layer
 
@@ -42,7 +47,7 @@ ArcGIS API for JavaScript
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
 
 ## Web editing in the browser
 
@@ -55,7 +60,7 @@ ArcGIS API for JavaScript
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-4.png" data-background-size="cover" -->
 
 ## Editor widget
 
@@ -65,13 +70,13 @@ ArcGIS API for JavaScript
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-4.png" data-background-size="cover" -->
 
-# Custom Workflows
+## Custom Workflows
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-5.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-3.png" data-background-size="cover" -->
 
 ## Form-based
 
@@ -104,9 +109,9 @@ ArcGIS API for JavaScript
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-3.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-3.png" data-background-size="cover" -->
 
-# Geometry-based
+## Geometry-based
 
 <img src="images/sketch-basic-updating.png" height="400" style="margin-left:10px; margin-right: 10px;"/>
 
@@ -123,7 +128,7 @@ ArcGIS API for JavaScript
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-4.png" data-background-size="cover" -->
 
 ## Geometry-based Demos
 
@@ -136,7 +141,7 @@ ArcGIS API for JavaScript
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-6.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-4.png" data-background-size="cover" -->
 
 ## Recap
 
@@ -154,7 +159,8 @@ ArcGIS API for JavaScript
 ---
 
 <!-- SURVEY SLIDE: -->
-<section data-markdown data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-rating.png">
+<section data-markdown data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-rating.png">
+</section>
 
 ---
 
@@ -164,8 +170,5 @@ ArcGIS API for JavaScript
 
 > 🤔 Where can I find the slides/source?
 
-👉 [bit.ly/webeditingds19](http://bit.ly/webeditingds19) 👈
-
----
-
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-esri.png" data-background-size="cover" -->
+<!-- TODO: shorten URL -->
+👉 [@tomwayson/fed-gis-2020-web-editing-with-the-js-api](https://github.com/tomwayson/fed-gis-2020-web-editing-with-the-js-api) 👈
