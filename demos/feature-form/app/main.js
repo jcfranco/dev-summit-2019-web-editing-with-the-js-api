@@ -3,6 +3,7 @@ define(["require", "exports", "esri/layers/FeatureLayer", "esri/widgets/FeatureF
     var highlight;
     var editFeature;
     var updateContainer = document.getElementById("update");
+    var updateButton = document.getElementById("btnUpdate");
     //----------------------------------
     //  set up map
     //----------------------------------
@@ -82,8 +83,7 @@ define(["require", "exports", "esri/layers/FeatureLayer", "esri/widgets/FeatureF
     //  set up form
     //----------------------------------
     var form = new FeatureForm({
-        container: "form",
-        layer: featureLayer
+        container: "form"
     });
     // Listen to the feature form's submit event.
     form.on("submit", function () {
@@ -96,26 +96,26 @@ define(["require", "exports", "esri/layers/FeatureLayer", "esri/widgets/FeatureF
     //----------------------------------
     //  set up form submit
     //----------------------------------
-    document.getElementById("btnUpdate").onclick = function () {
+    updateButton.onclick = function () {
         // fires feature form's submit event.
         form.submit();
     };
     // call FeatureLayer.applyEdits()
     function applyAttributeUpdates(updatedFeature) {
-        document.getElementById("btnUpdate").style.cursor = "progress";
+        updateButton.style.cursor = "progress";
         featureLayer
             .applyEdits({ updateFeatures: [updatedFeature] })
             .then(function (_a) {
-            var addFeaturesResult = _a.addFeaturesResult;
-            var first = addFeaturesResult[0];
+            var updateFeatureResults = _a.updateFeatureResults;
+            var first = updateFeatureResults[0];
             if (first) {
                 selectFeature(first.objectId);
             }
-            document.getElementById("btnUpdate").style.cursor = "pointer";
+            updateButton.style.cursor = "pointer";
         })
             .catch(function (error) {
             console.error("===============================================\n        [ applyEdits ] FAILURE: " + error);
-            document.getElementById("btnUpdate").style.cursor = "pointer";
+            updateButton.style.cursor = "pointer";
         });
     }
     selectFirstOnLoad();
