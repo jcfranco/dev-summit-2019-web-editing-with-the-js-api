@@ -62,11 +62,11 @@ ArcGIS API for JavaScript
 
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-4.png" data-background-size="cover" -->
 
-## Editor widget
+## [Editor](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html) widget
 
-[<img src="./images/editor-in-action.gif" height="400" style="margin-left:10px; margin-right: 10px;"/>](../demos/basic-editing/)
+[<img src="./images/editor-in-action.gif" height="400" style="margin-left:10px; margin-right: 10px;"/>](https://developers.arcgis.com/javascript/latest/sample-code/widgets-editor-basic/index.html)
 
-✨**New in 4.11**✨
+**Since v4.11** 🚀
 
 ---
 
@@ -88,12 +88,12 @@ ArcGIS API for JavaScript
 
 ## [`FeatureForm`](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html)
 
-* Renders input fields from attributes<!-- .element: class="fragment" data-fragment-index="1" -->
+* Renders input fields from fields & attributes<!-- .element: class="fragment" data-fragment-index="1" -->
 * Configurable<!-- .element: class="fragment" data-fragment-index="2" -->
   * Field order
   * Label/description
   * Groups
-  * Visibility expression (✨New in 4.11✨)
+  * Visibility expression
 
 ---
 
@@ -113,7 +113,7 @@ ArcGIS API for JavaScript
 
 ## Geometry-based
 
-<img src="images/sketch-basic-updating.png" height="400" style="margin-left:10px; margin-right: 10px;"/>
+<a href="https://developers.arcgis.com/javascript/latest/sample-code/sketch-geometries/index.html"><img src="images/sketch-basic-updating.png" height="400" style="margin-left:10px; margin-right: 10px;"/></a>
 
 ☝ `Sketch`
 
@@ -132,8 +132,9 @@ ArcGIS API for JavaScript
 
 ## Geometry-based Demos
 
-* Sketch with applyEdits
+* [Sketch](https://developers.arcgis.com/javascript/latest/sample-code/sketch-geometries/index.html)
 * SketchViewModel with applyEdits
+* Sketch with applyEdits
 * Sketch with custom tools
 * Sketch with custom snapping and validation
 
