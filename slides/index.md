@@ -26,37 +26,60 @@
 
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
 
-## Data in a feature service
+## Data in a [Feature Service](https://developers.arcgis.com/rest/services-reference/feature-service.htm)
 
 * One or more feature layers
 * Editable
+* Set permissions and constraints
 
 ---
 
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
 
-## Edit your feature layer
+## Edit feature layers on the web
 
-<u>ArcGIS REST API</u>
+<ul style="display: grid; grid-template-columns: 50% 50%; grid-column-gap: 10px; margin: 0 20%; list-style: none; text-align: center;">
+  <li>ArcGIS Online</li>
+  <li>ArcGIS for Developers</li>
+  <li>ArcGIS API for JavaScript</li>
+  <li>ArcGIS REST JS</li>
+</ul>
 
-ArcGIS Online
-
-ArcGIS API for Python
-
-ArcGIS API for JavaScript
+<u>[ArcGIS REST API](https://developers.arcgis.com/rest/)</u>
 
 ---
 
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
 
-## Web editing in the browser
+## ArcGIS API for JavaScript
 
-1. What to add: [FeatureTemplates](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html)
-2. Geometry: [Sketch](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html)
-3. Fields/attributes: [FeatureForm](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html)
-4. [FeatureLayer.applyEdits](http://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#applyEdits)
-<hr>
-5. Editor widget
+Configurable widgets
+
+<hr style="width: 20%;">
+
+Granular APIs
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
+
+
+## Confgiurable Widgets
+
+* [Editor](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html)
+  * Geometry: [Sketch](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html)
+  * Fields/attributes: [FeatureForm](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html)
+  * [FeatureTemplates](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html)
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
+
+## Granular APIs
+
+* [GraphicsLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GraphicsLayer.html)
+* [FeatureLayer.applyEdits](http://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#applyEdits)
+* [geometryEngine](https://developers.arcgis.com/javascript/latest/api-reference/esri-geometry-geometryEngine.html)
 
 ---
 
@@ -109,6 +132,19 @@ ArcGIS API for JavaScript
 
 ---
 
+## ArcGIS REST JS
+
+[<img src="images/rest-js-applyEdits.png" height="400" style="margin-left:10px; margin-right: 10px;"/>](https://esri.github.io/arcgis-rest-js/api/feature-layer/applyEdits/)
+
+---
+
+## [@esri/arcgis-rest-feature-layer](https://esri.github.io/arcgis-rest-js/api/feature-layer/)
+
+* Use when your app doesn't have a map
+* Bring your own UI (i.e. framework / library)
+
+---
+
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-3.png" data-background-size="cover" -->
 
 ## Geometry-based
@@ -146,9 +182,12 @@ ArcGIS API for JavaScript
 
 ## Recap
 
-* Web editing
-* Editor widgets
-* Custom workflows
+* Set constraints at the service level
+* ArcGIS API for JavaScript
+  * Editor widget
+  * Custom workflows
+* ArcGIS REST JS
+  * Already have a framework, no map
 
 ---
 
@@ -156,6 +195,7 @@ ArcGIS API for JavaScript
 
 - [JavaScript API SDK](https://developers.arcgis.com/javascript/)
 - [Arcade - expression language](https://developers.arcgis.com/javascript/latest/guide/arcade/index.html)
+- [ArcGIS REST JS](https://esri.github.io/arcgis-rest-js/)
 
 ---
 
