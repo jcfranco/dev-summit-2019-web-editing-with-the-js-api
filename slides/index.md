@@ -1,9 +1,8 @@
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-1.png" data-background-size="cover" style="padding-left: 80px;" -->
 
-  <h1 style="text-align: left; font-size: 80px;">Presentation Title</h1>
+  <h1 style="text-align: left; font-size: 80px;">ArcGIS API for JavaScript: Web Editing</h1>
   <p style="text-align: left; font-size: 30px;">Tom Wayson</p>
   <p style="text-align: left; font-size: 30px;"><a href="https://github.com/tomwayson">@tomwayson</a></p>
-  <!-- TODO: shorten URL -->
   <p style="text-align: left; font-size: 30px;">slides: <a href="http://bit.ly/fdgis20we"><code>http://bit.ly/fdgis20we</code></a></p>
   
   <!-- Add these rows to push your text up so it is not interfering with the event name. Test on your actual projector! -->
@@ -26,29 +25,36 @@
 
 <!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
 
-## Data in a [Feature Service](https://developers.arcgis.com/rest/services-reference/feature-service.htm)
-
-* One or more feature layers
-* Editable
-* Set permissions & constraints at service level
-
----
-
-<img src="./images/feature-layer-settings.png" height="600" style="margin-left:10px; margin-right: 10px;"/>
-
----
-
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
-
-## Edit feature layers on the web
+## Web Editing
 
 <ul style="list-style: none; text-align: center;">
   <li>👤 Web Application</li>
   <li>↕️<li>
   <li>🤓 ArcGIS API for JavaScript / ArcGIS REST JS</li>
   <li>↕️<li>
-  <li>🌐 Feature layer <a href="https://developers.arcgis.com/rest/services-reference/feature-layer.htm">REST API</a></li>
+  <li>🏛 <a href="https://developers.arcgis.com/rest/services-reference/feature-layer.htm">REST API</a></li>
 </ul>
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
+
+## Data in a [Feature Service](https://developers.arcgis.com/rest/services-reference/feature-service.htm)
+
+* Editable
+* One or more feature _layers_
+* Users will draw, create, and update Features
+
+---
+
+## 👉 Set constraints at service level 👈 
+
+* can set but **not enforce** in web clients
+* consistent behavior across all clients
+
+---
+
+<img src="./images/feature-layer-settings.png" height="600" style="margin-left:10px; margin-right: 10px;"/>
 
 ---
 
@@ -80,6 +86,7 @@
 
 ## Granular APIs
 
+* [SketchViewModel](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch-SketchViewModel.html)
 * [GraphicsLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GraphicsLayer.html)
 * [FeatureLayer.applyEdits](http://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#applyEdits)
 * [geometryEngine](https://developers.arcgis.com/javascript/latest/api-reference/esri-geometry-geometryEngine.html)
