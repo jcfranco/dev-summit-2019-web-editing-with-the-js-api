@@ -4,7 +4,7 @@
   <p style="text-align: left; font-size: 30px;">Tom Wayson</p>
   <p style="text-align: left; font-size: 30px;"><a href="https://github.com/tomwayson">@tomwayson</a></p>
   <!-- TODO: shorten URL -->
-  <p style="text-align: left; font-size: 30px;">slides: <a href="https://tomwayson.github.io/fed-gis-2020-web-editing-with-the-js-api/slides/#/"><code>https://tomwayson.github.io/fed-gis-2020-web-editing-with-the-js-api/slides/#/</code></a></p>
+  <p style="text-align: left; font-size: 30px;">slides: <a href="http://bit.ly/fdgis20we"><code>http://bit.ly/fdgis20we</code></a></p>
   
   <!-- Add these rows to push your text up so it is not interfering with the event name. Test on your actual projector! -->
   <p>&nbsp;</p> 
@@ -30,7 +30,11 @@
 
 * One or more feature layers
 * Editable
-* Set permissions and constraints
+* Set permissions & constraints at service level
+
+---
+
+<img src="./images/feature-layer-settings.png" height="600" style="margin-left:10px; margin-right: 10px;"/>
 
 ---
 
@@ -38,14 +42,13 @@
 
 ## Edit feature layers on the web
 
-<ul style="display: grid; grid-template-columns: 50% 50%; grid-column-gap: 10px; margin: 0 20%; list-style: none; text-align: center;">
-  <li>ArcGIS Online</li>
-  <li>ArcGIS for Developers</li>
-  <li>ArcGIS API for JavaScript</li>
-  <li>ArcGIS REST JS</li>
+<ul style="list-style: none; text-align: center;">
+  <li>👤 Web Application</li>
+  <li>↕️<li>
+  <li>🤓 ArcGIS API for JavaScript / ArcGIS REST JS</li>
+  <li>↕️<li>
+  <li>🌐 Feature layer <a href="https://developers.arcgis.com/rest/services-reference/feature-layer.htm">REST API</a></li>
 </ul>
-
-<u>[ArcGIS REST API](https://developers.arcgis.com/rest/)</u>
 
 ---
 
@@ -53,11 +56,11 @@
 
 ## ArcGIS API for JavaScript
 
-Configurable widgets
+🔑 Configurable widgets
 
 <hr style="width: 20%;">
 
-Granular APIs
+⌨️ Granular APIs
 
 ---
 
@@ -169,10 +172,10 @@ Granular APIs
 ## Geometry-based Demos
 
 * [Sketch](https://developers.arcgis.com/javascript/latest/sample-code/sketch-geometries/index.html)
-* SketchViewModel with applyEdits
-* Sketch with applyEdits
-* Sketch with custom tools
-* Sketch with custom snapping and validation
+* [SketchViewModel with applyEdits](../demos/sketch-applyEdits-create-polygon/applyEdits-create-polygon.html)
+* [Sketch with applyEdits](../demos/sketch-applyEdits/applyEdits.html)
+* [Sketch with custom tools](../demos/sketch-custom-tools/sketch-custom-tools.html)
+* [Sketch with custom snapping and validation](../demos/sketch-validation/sketch-validation.html)
 
 <!-- add screenshot for geometry-based demo -->
 
@@ -211,5 +214,4 @@ Granular APIs
 
 > 🤔 Where can I find the slides/source?
 
-<!-- TODO: shorten URL -->
-👉 [@tomwayson/fed-gis-2020-web-editing-with-the-js-api](https://github.com/tomwayson/fed-gis-2020-web-editing-with-the-js-api) 👈
+👉 [http://bit.ly/fdgis20we](http://bit.ly/fdgis20we) 👈
