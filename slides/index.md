@@ -1,14 +1,18 @@
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-1.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-1.png" data-background-size="cover" style="padding-left: 80px;" -->
 
-# Web Editing with the ArcGIS API for JavaScript
-
-#### Bjorn Svensson
-#### Jonathan Uihlein
-#### JC Franco
+  <h1 style="text-align: left; font-size: 80px;">ArcGIS API for JavaScript: Web Editing</h1>
+  <p style="text-align: left; font-size: 30px;">Tom Wayson</p>
+  <p style="text-align: left; font-size: 30px;"><a href="https://github.com/tomwayson">@tomwayson</a></p>
+  <p style="text-align: left; font-size: 30px;">slides: <a href="http://bit.ly/fdgis20we"><code>http://bit.ly/fdgis20we</code></a></p>
+  
+  <!-- Add these rows to push your text up so it is not interfering with the event name. Test on your actual projector! -->
+  <p>&nbsp;</p> 
+  <p>&nbsp;</p>
+  <!-- /end spacer rows -->
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-3.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-3.png" data-background-size="cover" -->
 
 ## Agenda
 
@@ -19,59 +23,93 @@
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
 
-## Data in a feature service
+## Web Editing
 
-* One or more feature layers
+<ul style="list-style: none; text-align: center;">
+  <li>👤 Web Application</li>
+  <li>↕️<li>
+  <li>🤓 ArcGIS API for JavaScript / ArcGIS REST JS</li>
+  <li>↕️<li>
+  <li>🏛 <a href="https://developers.arcgis.com/rest/services-reference/feature-layer.htm">REST API</a></li>
+</ul>
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
+
+## Data in a [Feature Service](https://developers.arcgis.com/rest/services-reference/feature-service.htm)
+
 * Editable
+* One or more feature _layers_
+* Users will draw, create, and update Features
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
+## 👉 Set constraints at service level 👈 
 
-## Edit your feature layer
-
-<u>ArcGIS REST API</u>
-
-ArcGIS Online
-
-ArcGIS API for Python
-
-ArcGIS API for JavaScript
+* can set but **not enforce** in web clients
+* consistent behavior across all clients
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-2.png" data-background-size="cover" -->
-
-## Web editing in the browser
-
-1. What to add: [FeatureTemplates](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html)
-2. Geometry: [Sketch](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html)
-3. Fields/attributes: [FeatureForm](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html)
-4. [FeatureLayer.applyEdits](http://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#applyEdits)
-<hr>
-5. Editor widget
+<img src="./images/feature-layer-settings.png" height="600" style="margin-left:10px; margin-right: 10px;"/>
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
 
-## Editor widget
+## ArcGIS API for JavaScript
 
-[<img src="./images/editor-in-action.gif" height="400" style="margin-left:10px; margin-right: 10px;"/>](../demos/basic-editing/)
+🔑 Configurable widgets
 
-✨**New in 4.11**✨
+<hr style="width: 20%;">
 
----
-
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
-
-# Custom Workflows
+⌨️ Granular APIs
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-5.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
+
+
+## Confgiurable Widgets
+
+* [Editor](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html)
+  * Geometry: [Sketch](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch.html)
+  * Fields/attributes: [FeatureForm](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html)
+  * [FeatureTemplates](http://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureTemplates.html)
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-2.png" data-background-size="cover" -->
+
+## Granular APIs
+
+* [SketchViewModel](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch-SketchViewModel.html)
+* [GraphicsLayer](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-GraphicsLayer.html)
+* [FeatureLayer.applyEdits](http://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#applyEdits)
+* [geometryEngine](https://developers.arcgis.com/javascript/latest/api-reference/esri-geometry-geometryEngine.html)
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-4.png" data-background-size="cover" -->
+
+## [Editor](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html) widget
+
+[<img src="./images/editor-in-action.gif" height="400" style="margin-left:10px; margin-right: 10px;"/>](https://developers.arcgis.com/javascript/latest/sample-code/widgets-editor-basic/index.html)
+
+**Since v4.11** 🚀
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-4.png" data-background-size="cover" -->
+
+## Custom Workflows
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-3.png" data-background-size="cover" -->
 
 ## Form-based
 
@@ -83,12 +121,12 @@ ArcGIS API for JavaScript
 
 ## [`FeatureForm`](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-FeatureForm.html)
 
-* Renders input fields from attributes<!-- .element: class="fragment" data-fragment-index="1" -->
+* Renders input fields from fields & attributes<!-- .element: class="fragment" data-fragment-index="1" -->
 * Configurable<!-- .element: class="fragment" data-fragment-index="2" -->
   * Field order
   * Label/description
   * Groups
-  * Visibility expression (✨New in 4.11✨)
+  * Visibility expression
 
 ---
 
@@ -104,11 +142,24 @@ ArcGIS API for JavaScript
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-3.png" data-background-size="cover" -->
+## ArcGIS REST JS
 
-# Geometry-based
+[<img src="images/rest-js-applyEdits.png" height="400" style="margin-left:10px; margin-right: 10px;"/>](https://esri.github.io/arcgis-rest-js/api/feature-layer/applyEdits/)
 
-<img src="images/sketch-basic-updating.png" height="400" style="margin-left:10px; margin-right: 10px;"/>
+---
+
+## [@esri/arcgis-rest-feature-layer](https://esri.github.io/arcgis-rest-js/api/feature-layer/)
+
+* Use when your app doesn't have a map
+* Bring your own UI (i.e. framework / library)
+
+---
+
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-3.png" data-background-size="cover" -->
+
+## Geometry-based
+
+<a href="https://developers.arcgis.com/javascript/latest/sample-code/sketch-geometries/index.html"><img src="images/sketch-basic-updating.png" height="400" style="margin-left:10px; margin-right: 10px;"/></a>
 
 ☝ `Sketch`
 
@@ -123,26 +174,30 @@ ArcGIS API for JavaScript
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-4.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-4.png" data-background-size="cover" -->
 
 ## Geometry-based Demos
 
-* Sketch with applyEdits
-* SketchViewModel with applyEdits
-* Sketch with custom tools
-* Sketch with custom snapping and validation
+* [Sketch](https://developers.arcgis.com/javascript/latest/sample-code/sketch-geometries/index.html)
+* [SketchViewModel with applyEdits](../demos/sketch-applyEdits-create-polygon/applyEdits-create-polygon.html)
+* [Sketch with applyEdits](../demos/sketch-applyEdits/applyEdits.html)
+* [Sketch with custom tools](../demos/sketch-custom-tools/sketch-custom-tools.html)
+* [Sketch with custom snapping and validation](../demos/sketch-validation/sketch-validation.html)
 
 <!-- add screenshot for geometry-based demo -->
 
 ---
 
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-6.png" data-background-size="cover" -->
+<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-4.png" data-background-size="cover" -->
 
 ## Recap
 
-* Web editing
-* Editor widgets
-* Custom workflows
+* Set constraints at the service level
+* ArcGIS API for JavaScript
+  * Editor widget
+  * Custom workflows
+* ArcGIS REST JS
+  * Already have a framework, no map
 
 ---
 
@@ -150,11 +205,13 @@ ArcGIS API for JavaScript
 
 - [JavaScript API SDK](https://developers.arcgis.com/javascript/)
 - [Arcade - expression language](https://developers.arcgis.com/javascript/latest/guide/arcade/index.html)
+- [ArcGIS REST JS](https://esri.github.io/arcgis-rest-js/)
 
 ---
 
 <!-- SURVEY SLIDE: -->
-<section data-markdown data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-rating.png">
+<section data-markdown data-background="../node_modules/esri-reveal.js-templates/img/2020/fed/bg-rating.png">
+</section>
 
 ---
 
@@ -164,8 +221,4 @@ ArcGIS API for JavaScript
 
 > 🤔 Where can I find the slides/source?
 
-👉 [bit.ly/webeditingds19](http://bit.ly/webeditingds19) 👈
-
----
-
-<!-- .slide: data-background="../node_modules/esri-reveal.js-templates/img/2019/devsummit/bg-esri.png" data-background-size="cover" -->
+👉 [http://bit.ly/fdgis20we](http://bit.ly/fdgis20we) 👈

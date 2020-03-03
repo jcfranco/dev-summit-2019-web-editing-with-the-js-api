@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "prettify": "prettier --write \"{demos}/**/*\""
+    "prettify": "prettier --write \"{demos}/**/*\"",
+    "start": "browser-sync demos -w --no-open & tsc -w"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,8 @@
     "esri-reveal.js-templates": "git+https://github.com/esri/reveal.js.git"
   },
   "devDependencies": {
-    "@types/arcgis-js-api": "~4.10.0",
+    "@types/arcgis-js-api": "~4.14.0",
+    "browser-sync": "^2.26.7",
     "dojo-typings": "~1.11.9",
     "prettier": "~1.16.4",
     "typescript": "~3.3.3333"
